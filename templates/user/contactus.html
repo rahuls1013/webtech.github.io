@@ -1,0 +1,49 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+
+<Style>
+    .form-control
+    {
+    margin-bottom:10px;
+
+    }
+    #form
+    {
+    box-shadow:2px 2px 2px 2px RED;
+    transform:scale(0.90);
+    transition:all ease 1s;
+    border-radius:5px;
+    }
+    .contact
+    {
+    background:linear-gradient(124deg,red,white);
+    }
+</Style>
+<div class="row" style="">
+    <div class=" h2 text-center"><b style="color:#ff4444"> Contact </b> US <i class="fa fa-phone "></i></div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10  contact " style="min-height:500px;">
+        <div class="row">
+
+            <div class="col-sm-12 p-1 fw-bold " id="form" style="min-height:500px;">
+
+                    {% if S %}
+                <div class="alert alert-success">
+                    Thanks for enquiry...
+                </div>
+                {% endif %}
+                <form method="post" autocomplete="off" style="padding-top:50px;">
+                     {% csrf_token %}
+               Name :<input type="text " placeholder="ENTER YOUR NAME..."  class="form-control" name="name"/>
+                Email :<input type="email " placeholder="ENTER YOUR EMAILID..."  class="form-control" name="email"/>
+                Mobile :<input type="text " placeholder="ENTER YOUR MOBILE NUMBER..."  class="form-control" name="mobile"/>
+                Message :<textarea class="form-control" name="msg"></textarea>
+                    <input type="submit" value="SEND MESSAGE" class="btn btn-danger  btn btn-outline-dark fw-bold"/>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+{% endblock %}
